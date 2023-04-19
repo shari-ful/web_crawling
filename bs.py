@@ -5,17 +5,15 @@ from time import time
 
 
 st = time()
-# Define the base URL of your website
+
 base_url = "https://shop.adidas.jp/"
 
-# Define the categories of products and the number of pages for each category
 categories = {
     "wear": "tops",
     "wear": "bottoms",
     "footwear": "sneakers",
 }
 
-# Define the fields that you want to scrape from the product pages
 fields = ["product_name", "product_description", "product_price", "product_image_url"]
 
 # Open a CSV file for writing

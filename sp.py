@@ -38,7 +38,6 @@ class ProductSpider(BaseHandler):
     result_worker = ResultWorker()
 
     # Define the on_start method to start crawling the website
-    @every(minutes=60)
     def on_start(self):
         # Loop through each category and page
         for category, num_pages in categories.items():

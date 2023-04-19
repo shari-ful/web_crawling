@@ -5,9 +5,9 @@ class ProductSpider(scrapy.Spider):
     name = "product_spider"
     allowed_domains = ["shop.adidas.jp"]
     start_urls = [
-        "https://shop.adidas.jp/item/gender=mens&category=wear&group=tops&page=1",
-        "https://shop.adidas.jp/item/gender=mens&category=wear&group=bottoms&page=1",
-        "https://shop.adidas.jp/item/gender=mens&category=footwear&group=sneakers&page=1"
+        "https://shop.adidas.jp/item/?gender=mens&category=wear&group=tops&page=1",
+        "https://shop.adidas.jp/item/?gender=mens&category=wear&group=bottoms&page=1",
+        "https://shop.adidas.jp/item/?gender=mens&category=footwear&group=sneakers&page=1"
     ]
 
     def parse(self, response):
