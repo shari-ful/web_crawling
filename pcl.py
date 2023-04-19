@@ -5,6 +5,7 @@ from time import time
 
 
 base_url = "https://shop.adidas.jp/"
+session = requests.Session()
 
 
 categories = {
@@ -29,18 +30,22 @@ def url_redirect():
 def parse():
     
 
-    for category, group in categories.items():
+    for item_url in item_urls:
         for page in range(1, 15):
-            category_url = base_url + f"item/?gender=mens&category={category}&group={group}&page={page}"
-            response = requests.get(category_url)
+            category_url = item_url+f"&page={page}"
+         
+            response = session.get(category_url)
             content = Selector(response.text)
-
+          
             product_links = content.css("a.image_link::attr(href)").getall()
             for product_link in product_links:
                 dict_data = {}
                 product_url = base_url + product_link
-                product_response = requests.get(product_url)
+
+                product_response = session.get(product_url)
                 product_content = Selector(product_response.text)
+
+        
 
                 dict_data['Breadcumb(Category)'] = product_content.css("ul.breadcrumbList a::text").getall()
                 dict_data['Category'] = product_content.css("span.categoryName::text").get()
