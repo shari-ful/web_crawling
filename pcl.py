@@ -13,8 +13,18 @@ categories = {
     "footwear": "sneakers",
 }
 
+item_urls= [
+    "https://shop.adidas.jp/item/?gender=mens&category=wear&group=tops",
+    "https://shop.adidas.jp/item/?gender=mens&category=wear&group=tops"
+    ]
 
 data = []
+
+def url_redirect():
+    for item_url in item_urls:
+        response = requests.get(item_url)
+        content = Selector(response.text)
+
 
 def parse():
     
